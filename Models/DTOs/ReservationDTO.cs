@@ -1,7 +1,6 @@
-namespace CreekRiver.Models;
+namespace CreekRiver.Models.DTOs;
 
-public class Reservation
-{
+public class ReservationDTO {
     public int Id { get; set; }
     public int CampsiteId { get; set; }
     public Campsite Campsite { get; set; }
