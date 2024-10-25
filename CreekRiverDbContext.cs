@@ -15,6 +15,10 @@ public class CreekRiverDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Campsite>().HasData(new Campsite[]
+        {
+            new Campsite {Id = 1, CampsiteTypeId = 1, Nickname = "Barred Owl", ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
+        });
         // seed data with campsite types
         modelBuilder.Entity<CampsiteType>().HasData(new CampsiteType[]
         {
