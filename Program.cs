@@ -41,6 +41,8 @@ app.MapGet("/api/campsites", (CreekRiverDbContext db) =>
     }).ToList();
 });
 
+
+
 app.Run();
 
 

@@ -15,10 +15,6 @@ public class CreekRiverDbContext : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Campsite>().HasData(new Campsite[]
-        {
-            new Campsite {Id = 1, CampsiteTypeId = 1, Nickname = "Barred Owl", ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
-        });
         // seed data with campsite types
         modelBuilder.Entity<CampsiteType>().HasData(new CampsiteType[]
         {
@@ -26,6 +22,11 @@ public class CreekRiverDbContext : DbContext
             new CampsiteType {Id = 2, CampsiteTypeName = "RV", FeePerNight = 26.50M, MaxReservationDays = 14},
             new CampsiteType {Id = 3, CampsiteTypeName = "Primitive", FeePerNight = 10.00M, MaxReservationDays = 3},
             new CampsiteType {Id = 4, CampsiteTypeName = "Hammock", FeePerNight = 12M, MaxReservationDays = 7}
+        });
+
+        modelBuilder.Entity<Campsite>().HasData(new Campsite[]
+        {
+            new Campsite {Id = 1, CampsiteTypeId = 1, Nickname = "Barred Owl", ImageUrl="https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg"},
         });
     }
 }
