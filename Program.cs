@@ -87,13 +87,13 @@ app.MapGet("/api/reservations", (CreekRiverDbContext db) =>
         .Include(r => r.UserProfile)
         .Include(r => r.Campsite)
         .ThenInclude(c => c.CampsiteType)
-        .OrderBy(res => res.CheckinDate)
+        .OrderBy(res => res.CheckInDate)
         .Select(r => new ReservationDTO
         {
             Id = r.Id,
             CampsiteId = r.CampsiteId,
             UserProfileId = r.UserProfileId,
-            CheckinDate = r.CheckinDate,
+            CheckInDate = r.CheckInDate,
             CheckoutDate = r.CheckoutDate,
             UserProfile = new UserProfileDTO
             {

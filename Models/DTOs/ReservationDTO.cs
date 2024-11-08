@@ -6,6 +6,6 @@ public class ReservationDTO {
     public CampsiteDTO Campsite { get; set; }
     public int UserProfileId { get; set; }
     public UserProfileDTO UserProfile { get; set; }
-    public DateTime CheckinDate { get; set; }
+    public DateTime CheckInDate { get; set; }
     public DateTime CheckoutDate { get; set; }
 }
