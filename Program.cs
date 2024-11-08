@@ -135,6 +135,21 @@ app.MapGet("/api/reservations", (CreekRiverDbContext db) =>
         .ToList();
 });
 
+app.MapPost("/api/profiles", (CreekRiverDbContext db, UserProfile newProf) =>
+{
+    try 
+    {
+    db.UserProfiles.Add(newProf);
+    db.SaveChanges();
+    return Results.Created($"/api/profiles/{newProf.Id}", newProf);
+    } 
+    catch (DbUpdateException){
+        return Results.BadRequest("Invalid data submitted");
+    }
+});
+
+
+
 app.Run();
 
 
