@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CreekRiver.Migrations
 {
     [DbContext(typeof(CreekRiverDbContext))]
-    [Migration("20241027175548_InitialCreate")]
+    [Migration("20241108170645_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -139,6 +139,32 @@ namespace CreekRiver.Migrations
                     b.HasIndex("UserProfileId");
 
                     b.ToTable("Reservations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CampsiteId = 1,
+                            CheckInDate = new DateTime(2024, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CheckoutDate = new DateTime(2024, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CampsiteId = 2,
+                            CheckInDate = new DateTime(2024, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CheckoutDate = new DateTime(2024, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserProfileId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CampsiteId = 4,
+                            CheckInDate = new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CheckoutDate = new DateTime(2024, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserProfileId = 1
+                        });
                 });
 
             modelBuilder.Entity("CreekRiver.Models.UserProfile", b =>
@@ -164,6 +190,22 @@ namespace CreekRiver.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserProfiles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "saygin@aol.com",
+                            FirstName = "Saygin",
+                            LastName = "Gecener"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "luna@example.com",
+                            FirstName = "Luna",
+                            LastName = "Dawg"
+                        });
                 });
 
             modelBuilder.Entity("CreekRiver.Models.Campsite", b =>

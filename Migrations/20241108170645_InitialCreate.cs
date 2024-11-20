@@ -105,9 +105,28 @@ namespace CreekRiver.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "UserProfiles",
+                columns: new[] { "Id", "Email", "FirstName", "LastName" },
+                values: new object[,]
+                {
+                    { 1, "saygin@aol.com", "Saygin", "Gecener" },
+                    { 2, "luna@example.com", "Luna", "Dawg" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Campsites",
                 columns: new[] { "Id", "CampsiteTypeId", "ImageUrl", "Nickname" },
                 values: new object[] { 1, 1, "https://tnstateparks.com/assets/images/content-images/campgrounds/249/colsp-area2-site73.jpg", "Barred Owl" });
+
+            migrationBuilder.InsertData(
+                table: "Reservations",
+                columns: new[] { "Id", "CampsiteId", "CheckInDate", "CheckoutDate", "UserProfileId" },
+                values: new object[,]
+                {
+                    { 2, 2, new DateTime(2024, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 3, 4, new DateTime(2024, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
+                    { 1, 1, new DateTime(2024, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Campsites_CampsiteTypeId",
