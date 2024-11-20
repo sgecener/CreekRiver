@@ -135,6 +135,18 @@ app.MapGet("/api/reservations", (CreekRiverDbContext db) =>
         .ToList();
 });
 
+app.MapGet("/api/profiles", (CreekRiverDbContext db) =>
+{
+    return db.UserProfiles
+    .Select(p => new UserProfileDTO
+    {
+        Id = p.Id,
+        FirstName = p.FirstName,
+        LastName = p.LastName,
+        Email = p.Email
+    }).ToList();
+});
+
 app.MapPost("/api/reservations", (CreekRiverDbContext db, Reservation newRes) =>
 {
     db.Reservations.Add(newRes);
