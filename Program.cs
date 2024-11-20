@@ -155,6 +155,18 @@ app.MapPost("/api/profiles", (CreekRiverDbContext db, UserProfile newProf) =>
     }
 });
 
+app.MapDelete("/api/reservations/{id}", (CreekRiverDbContext db, int id) =>
+{
+    Reservation reservation = db.Reservations.SingleOrDefault(reservation => reservation.Id == id);
+    if (reservation == null)
+    {
+        return Results.NotFound();
+    }
+    db.Reservations.Remove(reservation);
+    db.SaveChanges();
+    return Results.NoContent();
+
+});
 
 
 
